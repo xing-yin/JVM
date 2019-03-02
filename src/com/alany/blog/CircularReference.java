@@ -1,4 +1,4 @@
-package com.alany;
+package com.alany.blog;
 
 /**
  * 引用计数算法(循环引用时，此回收算法失效)

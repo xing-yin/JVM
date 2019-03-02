@@ -1,4 +1,4 @@
-package com.alany;
+package com.alany.blog;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;

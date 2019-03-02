@@ -1,4 +1,4 @@
-package com.alany;
+package com.alany.blog;
 
 /**
  * @author yinxing

@@ -1,4 +1,4 @@
-package com.alany;
+package com.alany.blog;
 
 /**
  * 初始化
