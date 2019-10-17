@@ -1,4 +1,4 @@
-package com.alany.book.chap3;
+package  com.alany.deepUnderstandJVM.chap3;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;

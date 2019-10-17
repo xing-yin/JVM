@@ -1,4 +1,4 @@
-package com.alany.book.chap2;
+package  com.alany.deepUnderstandJVM.chap2;
 
 /**
  * VM Args: -XX:PermSize=10M -XX:MaxPermSize=10M

@@ -1,4 +1,4 @@
-package com.alany.book.chap2;
+package com.alany.deepUnderstandJVM.chap2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class HeapOOM {
     }
 
     public static void main(String[] args) {
-        List<OOMObject> list = new ArrayList<>();
+        List<OOMObject> list = new ArrayList<OOMObject>();
 
         while (true) {
             list.add(new OOMObject());

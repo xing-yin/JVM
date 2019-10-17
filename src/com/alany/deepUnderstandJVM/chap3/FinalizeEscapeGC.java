@@ -1,4 +1,4 @@
-package com.alany.book.chap3;
+package  com.alany.deepUnderstandJVM.chap3;
 
 /**
  * 演示两点:
