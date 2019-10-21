@@ -2,21 +2,26 @@ package com.alany.blog;
 
 /**
  * 初始化
+ *
  * @author yinxing
  * @date 2019/2/27
  */
 
 public class InitializationClass {
 
-    static class Parent{
+    static class Parent {
         public static int A = 1;
-        static{
+
+        static {
             A = 2;
         }
     }
 
-    static class Sub extends Parent{
-        public static int B=A;
+    static class Sub extends Parent {
+        public Sub() {
+        }
+
+        public static int B = A;
     }
 
     public static void main(String[] args) {
