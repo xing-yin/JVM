@@ -1,4 +1,4 @@
-package com.alany.analysejvm.lectue2;
+package com.alany.analysejvm.lecture2;
 
 /**
  * 掩码操作
