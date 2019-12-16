@@ -17,24 +17,24 @@ import java.util.List;
 public class JVMInstuctionTest implements Runnable {
 
     public JVMInstuctionTest() {
-        System.out.println("construct method ==> invokespecial");
+        System.out.println("construct method ==> invoke special");
     }
 
     private void invokeSpecialMethod() {
-        System.out.println("private method ==> invokespecial");
+        System.out.println("private method ==> invoke special");
     }
 
     void invokeVirtualMethod() {
-        System.out.println("instance method ==> invokestatic");
+        System.out.println("instance method ==> invoke virtual");
     }
 
     static void invokeStaticMethod() {
-        System.out.println("static method ==> invokestatic");
+        System.out.println("static method ==> invoke static");
     }
 
     @Override
     public void run() {
-        System.out.println("invokeinterface method");
+        System.out.println("invoke interface");
     }
 
     /**
