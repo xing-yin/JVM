@@ -8,8 +8,9 @@ package com.alany.analysejvm.lecture3;
  */
 
 /**
- * 这段代码是在著名的单例延迟初始化例子中，只有当调用 Singleton.getInstance 时，程序才会访问 LazyHolder.INSTANCE，才会触发对 LazyHolder 的初始化
- * 即遇到访问静态字段的指令时，初始化该静态字段所在的类，继而新建一个 Singleton 的实例。
+ * 这段代码是在著名的单例延迟初始化例子中，只有当调用 Singleton.getInstance 时，
+ * 程序才会访问 LazyHolder.INSTANCE，才会触发对 LazyHolder 的初始化。
+ * 即遇到访问静态字段/方法的指令时，初始化该静态字段所在的类，继而新建一个 Singleton 的实例。
  * <p>
  * 由于类初始化是线程安全的，并且仅被执行一次，因此程序可以确保多线程环境下有且仅有一个 Singleton 实例。
  */
