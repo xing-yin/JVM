@@ -1,9 +1,7 @@
 方法区-字符串常量池、class常量池和运行时常量池
 ====
 
-### 参考链接
-
-- https://blog.csdn.net/qq_26222859/article/details/73135660
+# 主题1 | 全局字符串池、class文件常量池、运行时常量池
 
 ## 1.全局字符串池（string pool 也叫做 string literal pool）
 
@@ -83,3 +81,86 @@ jvm 在执行某个类时，必须经过加载、连接、初始化，而连接�
 * 2.**class 常量池是在编译的时候每个 class 都有的**，在编译阶段，存放的是常量的符号引用。
 
 * 3.运行时常量池是在类加载完成之后，将每个class常量池中的符号引用值转存到运行时常量池中，也就是说，每**个class都有一个运行时常量池，类在解析之后，将符号引用替换成直接引用**，与全局常量池中的引用值保持一致。
+
+-----------
+
+# 主题2 | class文件常量池和运行时常量池详解
+
+首先，让我们思考几个问题。
+
+1. 方法区里面存着什么东西？
+
+2. 方法区里保存的 class 文件信息和 class文件常量池是什么关系？
+
+3. class文件常量池和运行时常量池是什么关系？
+
+> 接下来，就让我为你逐一解答这些问题。
+
+我们知道，方法区存着类的信息，常量和静态变量，即类被编译后的数据。这个说法没有问题，只是太笼统了。更详细一点的说法是方法区里存放着类的版本，字段，方法，接口和常量池。常量池里存储着字面量和符号引用。
+
+> 符号引用包括：1.类的全限定名，2.字段名和属性，3.方法名和属性。
+
+下面一张图展示了方法区中 class文件信息，class文件常量池和运行时常量池的关系。
+
+<div align="center"> <img src="pics/1-2方法区.png" width="500" style="zoom:90%"/> </div><br>
+
+下面这张图展示了方法区中 class文件信息包含了哪些内容。
+
+<div align="center"> <img src="pics/1-3方法区.png" width="500" style="zoom:90%"/> </div><br>
+
+可以看到在方法区里的 class文件信息包括：魔数，版本号，常量池，类，父类和接口数组，字段，方法等信息。其实类里面又包括字段和方法的信息。
+
+下面这张表梳理了 class文件中存储的数据类型。
+
+<div align="center"> <img src="pics/1-4方法区.png" width="500" style="zoom:90%"/> </div><br>
+
+我们继续用一张图来表示常量池里存储的内容。
+
+<div align="center"> <img src="pics/1-5方法区.png" width="500" style="zoom:90%"/> </div><br>
+
+为了方便你理解，我们举个例子说明下。
+
+> 我们先创建一个 java 文件，代码如下。
+> 
+> ```java
+> public class TestDemo {    
+>     private String str = "test";    
+>     void printInt(){    
+>         System.out.println(65535);    
+>     }    
+> }   
+> ```
+> 
+> 然后用 javac 编译成 class 文件,命令如下。
+> 
+> 		javac TestDemo.java
+> 
+> 然后用 javap 反编译得到 class 文件，如下。
+> 
+> 		javap -verbose TestDemo
+> 
+> <div align="center"> <img src="pics/1-6方法区.png" width="500" style="zoom:120%"/> </div><br>
+
+可以看出被反编译的 class文件中的内容对应了上面解释的内容，这就解答了class文件和 class文件常量池的关系。
+
+### class文件常量池和运行时常量池的关系以及区别
+
+* class 文件常量池存储的是当 class 文件被 java 虚拟机加载进来后存放在方法区的一些**字面量和符号引用**。
+
+* 运行时常量池是当 class 文件被加载完成后，java 虚拟机会将 class 文件常量池里的内容转移到运行时常量池里，在 class文件常量池的符号引用有一部分是会被转变为直接引用的，比如**类的静态方法或私有方法，实例构造方法，父类方法，这是因为这些方法不能被重写其他版本**，所以在加载的时候就可以将符号引用转变为直接引用，而其他的一些方法是在这个方法被第一次调用的时候才会将符号引用转变为直接引用的。
+
+## 小结
+
+方法区里存储着 class 文件的信息和运行时常量池, class 文件的信息包括类信息和 class 文件常量池。
+
+运行时常量池里除了 class 文件常量池内容外，还**将 class 文件常量池里的符号引用转变为直接引**用，而且运行时常量池里的内容是**能动态添加**。
+
+> 例如调用 String 的 intern 方法就能将 string 的值添加到 String 常量池中。⚠️提醒你一下，这里 String 常量池是包含在运行时常量池里的，但在 jdk1.8 后，String 常量池北放到了堆中。
+
+### 参考链接
+
+* https://blog.csdn.net/qq_26222859/article/details/73135660
+
+* http://blog.csdn.net/vegetable_bird_001/article/details/51278339
+
+* https://www.cnblogs.com/holos/p/6603379.html
