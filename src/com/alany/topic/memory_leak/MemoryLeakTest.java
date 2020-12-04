@@ -8,12 +8,9 @@ import java.util.Map;
  * <p>
  * 模拟内存泄漏
  * <p>
- * 配置的JVM参数如下：
+ * 测试实验1（VisualVM）：配置的JVM参数如下：-Xms512m -Xmx512m -XX:-UseGCOverheadLimit
  * <p>
- * -Xms512m
- * -Xmx512m
- * -XX:-UseGCOverheadLimit
- * -XX:MaxPermSize=50m
+ * 测试实验2 (GCView 和 GCEasy)：-XX:+UseG1GC -XX:MaxGCPauseMillis=100 -Xmx512m -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:/Users/yinxing/Desktop/gc.log
  *
  * @author Alan Yin
  * @date 2020/12/2
