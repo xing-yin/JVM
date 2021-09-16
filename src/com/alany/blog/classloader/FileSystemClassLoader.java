@@ -1,4 +1,4 @@
-package com.alany.blog;
+package com.alany.blog.classloader;
 
 /**
  * @author yinxing
@@ -56,6 +56,10 @@ public class FileSystemClassLoader extends ClassLoader {
                 + File.separatorChar
                 + className.replace('.', File.separatorChar)
                 + ".class";
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

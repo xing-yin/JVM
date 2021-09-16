@@ -34,8 +34,10 @@ public class Singleton {
     }
 
     public static void main(String[] args) {
-        getInstance(true); // 不会触发初始化: 不会打印 LazyHolder.<clint>
+        // 不会触发初始化: 不会打印 LazyHolder.<clint>(因为当遇到访问静态字段的指令时，初始化该静态字段所在的类；此处没有访问静态字段)
+        getInstance(true);
         System.out.println("=========");
-        getInstance(false); // 触发初始化
+        // 触发初始化
+        getInstance(false);
     }
 }

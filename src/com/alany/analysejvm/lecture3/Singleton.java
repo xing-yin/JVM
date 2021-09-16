@@ -21,7 +21,6 @@ public class Singleton {
 
     private static class LazyHolder {
         private static final Singleton SINGLETON = new Singleton();
-
         static {
             System.out.println("LazyHolder.<clint>");
         }
