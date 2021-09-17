@@ -6,7 +6,7 @@ import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 
 /**
- * 4种引用类型
+ * 演示：4种引用类型
  *
  * @author yinxing
  * @date 2019/2/25
