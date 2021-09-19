@@ -148,7 +148,7 @@ Runnable runnable = new JVMInstuctionTest();
         System.out.println("==============");
 
         // III.使用 reflect
-        Class clazz = Class.forName("com.alany.blog.invokXXX.JVMInstuctionTest");
+        Class clazz = Class.forName("invokXXX.JVMInstuctionTest");
         Object obj = clazz.newInstance();
         Method method = clazz.getMethod("methodHandle",String.class);
         method.invoke(obj,"aaa");
